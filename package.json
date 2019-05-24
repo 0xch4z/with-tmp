@@ -1,0 +1,35 @@
+{
+  "name": "with-tmpdir",
+  "author": "Charles Kenney <me@ch4z.io>",
+  "version": "0.1.0",
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/charliekenney23/fs-cmp.git"
+  },
+  "keywords": [
+    "files",
+    "fs",
+    "directories",
+    "tmp",
+    "tmpdir"
+  ],
+  "scripts": {
+    "build": "tsc -p ./",
+    "test": "jest"
+  },
+  "dependencies": {
+    "fs-extra": "^8.0.1"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^7.0.0",
+    "@types/jest": "^24.0.13",
+    "@types/node": "^12.0.2",
+    "fs-cmp": "^1.0.0",
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.4.5"
+  }
+}
