@@ -1,5 +1,5 @@
 {
-  "name": "with-tmpdir",
+  "name": "with-tmp",
   "author": "Charles Kenney <me@ch4z.io>",
   "version": "1.0.0",
   "types": "dist/index.d.ts",
