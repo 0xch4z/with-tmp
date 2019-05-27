@@ -1,6 +1,11 @@
 import * as os from 'os';
 import * as path from 'path';
 import * as fs from 'fs-extra';
+import { promisify } from 'util';
+
+import rimraf = require('rimraf');
+
+const rimrafAsync = promisify(rimraf);
 
 export const ERR_PREFIX_MUST_STRING = 'prefix must be of type string';
 export const ERR_PREFIX_MUST_LENGTH = 'prefix must not be an empty string';
@@ -39,7 +44,7 @@ export const withTmpdir: WithTmpdirFunction = async (prefix, task) => {
   try {
     await task(dir);
   } finally {
-    await fs.rmdir(dir);
+    await rimrafAsync(dir);
   }
 };
 

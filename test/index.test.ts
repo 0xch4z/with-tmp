@@ -1,4 +1,5 @@
 import * as fs from 'fs-extra';
+import * as path from 'path';
 import fsCmp from 'fs-cmp';
 
 import {
@@ -74,6 +75,17 @@ describe('withTmpdir', () => {
     expect(task).toHaveBeenCalledTimes(1);
     expect(task).toHaveBeenCalledWith(tmpdir);
     await expectDirectoryNotExists(tmpdir);
+  });
+
+  test('should clean up non-empty temporary directory after', async () => {
+    let tmpdir;
+    const task = jest.fn((dir: string) => {
+      tmpdir = dir;
+      return fs.writeFile(path.join(dir, 'file'), '');
+    });
+    await withTmpdir('test', task);
+
+    return expectDirectoryNotExists(tmpdir);
   });
 });
 
